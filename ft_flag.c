@@ -17,7 +17,7 @@ t_flags		initial(void)
 	t_flags new;
 
 	new.minus = 0;
-	new.dot = -1;
+	new.dot = -255;
 	new.zero = 0;
 	return (new);
 }

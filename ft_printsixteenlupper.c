@@ -55,7 +55,7 @@ int				ft_ishexadecimalupper(unsigned long long un, int i,
 		res = ft_dotzero(flags->dot, res, ft_strlen(res));
 	else if (flags->dot == 0)
 		res = ft_dotnil(un, res);
-	if (flags->dot >= 0 && flags->zero > 0)
+	if (flags->dot >= 0 && flags->zero != -255)
 		flags->minus = flags->zero * -1;
 	i = flags->minus * (flags->minus < 0 ? -1 : 1);
 	if (flags->minus != 0 && i > (int)ft_strlen(res))

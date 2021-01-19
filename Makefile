@@ -30,7 +30,7 @@ clean:
 	rm -rf $(OBJ)
 	make clean -C $(LIBFT_DIR)
 
-fclean:
+fclean: clean
 	rm -rf $(NAME)
 	make fclean -C $(LIBFT_DIR)
 

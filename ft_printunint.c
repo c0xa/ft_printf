@@ -67,14 +67,13 @@ int				ft_isunsignedint(unsigned int un, int i,
 				size_t lens, t_flags *flags)
 {
 	char	*res;
-
 	if (!(res = ft_itoaforun(un)))
 		return (0);
 	if (flags->dot >= (int)ft_strlen(res) && flags->dot > 0)
 		res = ft_dotzero(flags->dot, res, ft_strlen(res));
 	else if (flags->dot == 0)
 		res = ft_dotnil(un, res);
-	if (flags->dot >= 0 && flags->zero > 0)
+	if (flags->dot >= 0 && flags->zero != -255)
 		flags->minus = flags->zero * -1;
 	i = flags->minus * (flags->minus < 0 ? -1 : 1);
 	if (flags->minus != 0 && i > (int)ft_strlen(res))

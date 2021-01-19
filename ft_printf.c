@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-int			ft_istype(char s, va_list args, t_flags *flags)
+int		ft_istype(char s, va_list args, t_flags *flags)
 {
 	int count;
 
@@ -21,11 +21,10 @@ int			ft_istype(char s, va_list args, t_flags *flags)
 		count = ft_ischar(va_arg(args, int), flags, 0, 0);
 	else if (s == 's')
 		count = ft_isstring(va_arg(args, char *), flags, 0, 1);
-	else if (s == 'd' || s == 'i')
+	else if	(s == 'd' || s == 'i')
 		count = ft_isinteger(va_arg(args, int), flags, 1, 1);
 	else if (s == 'u')
-		count = ft_isunsignedint((unsigned int)va_arg(args, unsigned int),
-			1, 1, flags);
+		count = ft_isunsignedint((unsigned int)va_arg(args, unsigned int), 1, 1, flags);
 	else if (s == 'p')
 		count = ft_ispointer(va_arg(args, unsigned long long), flags);
 	else if (s == 'x')
@@ -63,10 +62,10 @@ int			ft_isflag(const char **c, t_flags *flags, va_list args)
 	return (ft_istype(*p, args, flags));
 }
 
-int			ft_parse_copy(const char *s, va_list args)
+int		ft_parse_copy(const char *s,  va_list args)
 {
-	int			count_char;
-	t_flags		flags;
+	int		count_char;
+	t_flags	flags;
 
 	count_char = 0;
 	while (*s)
@@ -100,15 +99,4 @@ int			ft_printf(const char *str, ...)
 	char_count = ft_parse_copy(str, args);
 	va_end(args);
 	return (char_count);
-}
-
-int main()
-{
-	int t;
-
-	t = ft_printf("%*.*xt\n", -1, 0, 0);
-	printf("%d\n", t);
-	t = printf("%*.*xt\n", -1, 0, 0);
-	printf("%d\n", t);
-	return (0);
 }
