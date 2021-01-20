@@ -17,7 +17,7 @@ t_flags		initial(void)
 	t_flags new;
 
 	new.minus = 0;
-	new.dot = -255;
+	new.dot = -1;
 	new.zero = 0;
 	return (new);
 }
@@ -44,6 +44,8 @@ int			ft_printprocent(t_flags *flags)
 	if (flags->zero > 0)
 		s = ft_dotzero(flags->zero, s, 1);
 	lens = ft_strlen(s);
+	if ((flags->dot >= 0 && flags->zero > 0) || (flags->zero < 0))
+		flags->minus = flags->zero * -1;
 	if (flags->minus != 0)
 		lens += ft_minus_pointer(s, flags->minus, 0, 0);
 	else

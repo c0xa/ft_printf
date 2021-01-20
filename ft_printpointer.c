@@ -46,7 +46,10 @@ int		ft_ispointer(unsigned long long un, t_flags *flags)
 	char	*res;
 
 	lens = 0;
-	res = ft_itoasixteen(un, 16);
+	if (flags->dot == 0 && un == 0)
+		res = ft_strdup("");
+	else
+		res = ft_itoasixteen(un, 16);
 	s = ft_strjoin("0x", res);
 	free(res);
 	lens = ft_strlen(s);
