@@ -2,7 +2,7 @@ NAME        = libftprintf.a
 LIBFT_DIR   = libft/
 LIBFT       = libft.a
 INCLDS      = includes/
-SRC         = ft_printf.c \
+SOURCES         = ft_printf.c \
 				ft_printchar.c \
 				ft_printstring.c \
 				ft_printint.c \
@@ -13,9 +13,12 @@ SRC         = ft_printf.c \
 				ft_flag.c \
 				ft_parseflag.c \
 				ft_itoasixteen.c
+
+SRCDIR          = srcs/
+SRC         = $(addprefix $(SRCDIR),$(SOURCES))
 OBJ			= $(SRC:.c=.o)
 CC			= gcc
-CFLAGS		= -Wall -Wextra -Werror
+CFLAGS		= -Iincludes/ -Wall -Wextra -Werror
 .c.o:
 	$(CC) $(CFLAGS) -I $(INCLDS) -c $< -o $(<:.c=.o)
 

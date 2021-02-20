@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: tblink <tblink@student.42.fr>              +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/18 16:03:02 by tblink            #+#    #+#             */
-/*   Updated: 2021/01/18 16:04:16 by tblink           ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "ft_printf.h"
 
 int			ft_istype(char s, va_list args, t_flags *flags)
@@ -59,7 +47,7 @@ int			ft_isflag(const char **c, t_flags *flags, va_list args)
 			ft_putchar_fd(' ', 1);
 		}
 		else
-			write(1, *p, 1);
+			write(1, p, 1);
 	}
 	*c = p;
 	return (ft_istype(*p, args, flags));
